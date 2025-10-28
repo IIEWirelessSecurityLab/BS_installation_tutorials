@@ -10,6 +10,6 @@ services:
     network_mode: host
     volumes:
       - "/dev/bus/usb:/dev/bus/usb"
-    working_dir: /root/LTESniffer/build/src
+    working_dir: /home
     tty: true
     stdin_open: true
