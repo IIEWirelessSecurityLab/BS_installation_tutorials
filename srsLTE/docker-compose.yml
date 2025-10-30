@@ -1,0 +1,23 @@
+services:
+  srslte:
+    image: srslte
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: srslte
+    privileged: true
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - "/dev/bus/usb:/dev/bus/usb"
+      - "./config:/root/.config/srsran"
+    working_dir: /home
+    tty: true
+    stdin_open: true
+    command: >
+      bash -c '
+        DEV=$(ip -4 route | awk '\''$1 == "default" {print $5; exit}'\'' );
+        iptables -P FORWARD ACCEPT;
+        iptables -t nat -A POSTROUTING -o $$DEV -j MASQUERADE;
+        tail -f /dev/null
+      '

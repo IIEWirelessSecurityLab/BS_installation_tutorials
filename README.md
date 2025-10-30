@@ -74,6 +74,52 @@ vi configs/config-srsran-n78-20MHz.conf
 ## Core Network and Base Station
 ## [srsRAN_4G]()
 
+1. Configure srsRAN_4G
+```bash
+cd srsLTE/config
+
+######### gedit enb.conf ###########
+# mcc = 001
+# mnc = 01
+# n_prb = 50
+# dl_earfcn = 3350
+# tx_gain = 80
+# rx_gain = 40
+
+
+######### gedit epc.conf ###########
+# mcc = 001
+# mnc = 01
+# apn = srsapn
+
+######### gedit user_db.csv ###########
+# Register UE:
+# ue2,mil,001010123456780,00112233445566778899aabbccddeeff,opc,63bfa50ee6523365ff14c1f45f88737d,8000,000000001234,7,dynamic
+```
+
+
+2. INSTALL srsRAN_4G
+
+
+```bash
+cd srsLTE
+sysctl -w net.ipv4.ip_forward=1
+docker compose build srslte
+docker compose up -d srslte
+```
+
+3. Start BS
+```bash
+docker exec -it srslte bash
+# 4G Core Network
+srsepc
+
+# start new bash
+docker exec -it srslte bash
+# srsRAN eNB using SDR (OTA)
+srsenb
+```
+
 ## [open5gs](https://github.com/herlesupreeth/docker_open5gs.git)
 1. INSTALL open5gs
 ```bash
