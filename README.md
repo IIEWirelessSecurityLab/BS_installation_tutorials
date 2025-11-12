@@ -72,7 +72,7 @@ vi configs/config-srsran-n78-20MHz.conf
 ```
 
 ## Core Network and Base Station
-## [srsRAN_4G]()
+## [srsRAN_4G](https://github.com/srsran/srsRAN_4G)
 
 1. Configure srsRAN_4G
 ```bash
