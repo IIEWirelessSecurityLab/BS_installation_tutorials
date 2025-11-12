@@ -61,7 +61,7 @@ wget https://zenodo.org/records/15601773/files/Sni5Gect-source-code.zip
 unzip Sni5Gect-source-code.zip
 cd Sni5Gect-5GNR-sniffing-and-exploitation-main
 
-docker compose up-d
+docker compose up -d
 docker exec -it artifacts bash
 
 
