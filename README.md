@@ -34,6 +34,12 @@ sudo apt-get update
 
 ## DCI recoder
 ### [LTESniffer](https://github.com/SysSec-KAIST/LTESniffer)
+0. **Before Install** If you use proxy, please config the proxy in `./LTESniffer/Dockerfile`.
+
+```
+# RUN git config --global http.proxy "http://10.42.0.1:7897"
+# RUN git config --global https.proxy "https://10.42.0.1:7897"
+```
 
 1. Install LTESniffer from docker:
 ```bash
@@ -73,6 +79,12 @@ vi configs/config-srsran-n78-20MHz.conf
 
 ## Core Network and Base Station
 ## [srsRAN_4G](https://github.com/srsran/srsRAN_4G)
+0. **Before Install** If you use proxy, please config the proxy in `./srsLTE/Dockerfile`.
+
+```
+# RUN git config --global http.proxy "http://10.42.0.1:7897"
+# RUN git config --global https.proxy "https://10.42.0.1:7897"
+```
 
 1. Configure srsRAN_4G
 ```bash
@@ -199,6 +211,20 @@ APN Configuration:
 ## Other 
 
 ### Some issues
+1. If necessary, use **PROXY**!
+2. If necessary, config registry:
+```
+sudo vim /etc/docker/daemon.json
+
+{  
+  "registry-mirrors": [  
+    "https://example.com"
+  ]  
+}
+
+sudo systemctl daemon-reload  
+sudo systemctl restart docker
+```
 
 ### [INSTALL usrp driver](https://blog.csdn.net/qq_36666115/article/details/144943242)
 
