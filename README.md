@@ -34,8 +34,7 @@ sudo apt-get update
 
 ## DCI recoder
 ### [LTESniffer](https://github.com/SysSec-KAIST/LTESniffer)
-0. **Before Install** If you use proxy, please config the proxy in `./LTESniffer/Dockerfile`.
-
+0. **Before Install**: If you use proxy, please config the proxy in `./LTESniffer/Dockerfile`.
 ```
 # RUN git config --global http.proxy "http://10.42.0.1:7897"
 # RUN git config --global https.proxy "https://10.42.0.1:7897"
@@ -79,7 +78,7 @@ vi configs/config-srsran-n78-20MHz.conf
 
 ## Core Network and Base Station
 ## [srsRAN_4G](https://github.com/srsran/srsRAN_4G)
-0. **Before Install** If you use proxy, please config the proxy in `./srsLTE/Dockerfile`.
+0. **Before Install**: If you use proxy, please config the proxy in `./srsLTE/Dockerfile`.
 
 ```
 # RUN git config --global http.proxy "http://10.42.0.1:7897"
@@ -227,7 +226,7 @@ sudo systemctl restart docker
 ```
 
 ### [INSTALL usrp driver](https://blog.csdn.net/qq_36666115/article/details/144943242)
-
+If you want to install usrp driver in manual, try:
 ```bash
 # Run on physical machines without docker
 sudo add-apt-repository ppa:ettusresearch/uhd
